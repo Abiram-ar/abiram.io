@@ -338,15 +338,44 @@ section,
   }
 
   .hero h2 {
-    font-size: 32px;
+    font-size: 25px;
   }
 
   .hero h5 {
-    font-size: 20px;
+    font-size: 15px;
   }
-  social-links a {
+  .social-links a {
+    font-size: 15px;
+    color: var(--social-color);
+
+  }
+  .social-links a {
    display: block;
 }
+.custom-button {
+  background-color: var(--accent-color);
+  color: #fff;
+  border: 0;
+  padding: 10px 25px;
+  font-size: 15px;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+.hero img {
+  /* position: absolute */
+  inset: 0;
+  display: block;
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  object-position: 50% 20%;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
+  z-index: 1;
+}
+
 }
 
 
