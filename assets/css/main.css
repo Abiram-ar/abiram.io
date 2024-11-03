@@ -37,6 +37,39 @@
   --contrast-color: #1fcf0f;
 }
 
+/*--------------------------------------------------------------
+# General Styling & Shared Classes
+--------------------------------------------------------------*/
+body {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  font-family: var(--default-font);
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: color-mix(in srgb, var(--accent-color), transparent 25%);
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--primary-font-color);
+  font-family: var(--heading-font);
+}
+p{
+  font-family:quicksand;
+}
+
 /* Smooth scroll */
 :root {
   scroll-behavior: smooth;
@@ -58,7 +91,7 @@ section,
 --------------------------------------------------------------*/
 .section-title {
   text-align: center;
-  padding-bottom: 60px;
+  padding-bottom: 30px;
   position: relative;
 }
 
@@ -79,7 +112,7 @@ section,
   background: var(--heading-font-color);
   left: 0;
   right: 0;
-  bottom: 1px;
+  /* bottom: 1px; */
   margin: auto;
 }
 
@@ -99,7 +132,26 @@ section,
 .section-title p {
   margin-bottom: 0;
 }
-
+@media (max-width: 768px) {
+  .section-title h2 {
+    font-size: 28px;
+    font-weight: 600;
+    position: relative;
+  }
+  
+  .section-title h2:before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 160px;
+    height: 1px;
+    background: var(--background-secondary-color);
+    left: 0;
+    right: 0;
+    bottom: 1px;
+    margin: auto;
+  }
+}
 /*--------------------------------------------------------------
 # Global Header
 --------------------------------------------------------------*/
@@ -338,20 +390,17 @@ section,
   }
 
   .hero h2 {
-    font-size: 25px;
+    font-size: 30px;
   }
 
   .hero h5 {
-    font-size: 15px;
+    font-size: 20px;
   }
   .social-links a {
-    font-size: 15px;
+    font-size: 25px;
     color: var(--social-color);
-
+    display: block;
   }
-  .social-links a {
-   display: block;
-}
 .custom-button {
   background-color: var(--accent-color);
   color: #fff;
@@ -382,63 +431,28 @@ section,
 /*--------------------------------------------------------------
 # About Section
 --------------------------------------------------------------*/
-.about {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* Centers the cards in the section */
-}
-
-.about .row {
-  display: flex;
-  /* Ensure row is a flex container */
-  justify-content: center;
-  /* Centers the columns horizontally */
-  width: 100%;
-  /* Allow the row to take full width */
-}
-
-.about .col-6 {
-  display: flex;
-  /* Make columns flex containers */
-  justify-content: center;
-  /* Center content horizontally */
-  align-items: center;
-  /* Center content vertically */
-}
-
 .card {
   display: flex;
-  /* Make the card a flex container */
   flex-direction: column;
-  /* Arrange children in a column */
   justify-content: center;
-  /* Center content vertically within the card */
   align-items: center;
-  /* Center content horizontally within the card */
   text-align: center;
-  /* Center text within the card */
-  background-color: var(--primary-font-color);
-  /* Card background color */
-  border-radius: 50px;
-  /* Rounded corners */
+  background-color: var(--background-color);
+  border-radius: 50%; /* Adjusted border-radius for better effect */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  /* Subtle shadow effect */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  /* Smooth transition for hover effects */
   padding: 20px;
-  /* Padding inside the card */
   margin: 15px;
-  /* Margin between cards */
+  width: 250px; /* Fixed width for consistency */
+  height: 200px; /* Fixed height for square shape */
+  overflow: hidden; /* Ensures content inside respects the border-radius */
 }
-
 .card:hover {
   transform: translateY(-5px);
   /* Lift the card slightly on hover */
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   /* Enhance shadow on hover */
 }
-
 .left,
 .right {
   background-color: #ffffff;
@@ -448,17 +462,14 @@ section,
   border-radius: 8px;
   /* Rounded corners for content area */
 }
-
 .about h3 {
   color: var(--accent-color);
   /* Heading color */
 }
-
 .about h6 {
   color: #6c757d;
   /* Subtitle color */
 }
-
 .about p {
   text-align: justify;
   max-width: max;
@@ -466,21 +477,42 @@ section,
   margin: 0 auto;
   /* Center paragraph */
 }
-
-@media (max-width: 768px) {
-  .about p {
-    padding-top: 1rem;
+   @media (max-width: 768px) {
+    .card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-radius: 50%;
+      align-items: center;
+      text-align: center;
+      background-color: var(--background-color); /* Ensure this variable is defined */
+      border-radius: 50px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      width: 200px;  /* Fixed width */
+      height: 150px; /* Fixed height */
+      margin: 10px auto; /* Centering the card */
+      padding: 20px;
+    }
   }
+  /*--------------------------------------------------------------
+# stats section
+--------------------------------------------------------------*/
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* Adds space between the stats items */
+  padding: 30px;
 }
 
-/* stats section */
 .stats i {
   background-color: var(--accent-color);
   color: var(--icon-color);
   width: 54px;
   height: 54px;
   font-size: 24px;
-  border-radius: 50px;
+  border-radius: 50%;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -489,12 +521,13 @@ section,
 }
 
 .stats .stats-item {
-  margin-top: 10px;
   width: 100%;
+  max-width: 200px; /* Restricting maximum width for responsiveness */
   position: relative;
   text-align: center;
   z-index: 0;
-}
+  padding: 20px;
+ }
 
 .stats .stats-item span {
   font-size: 36px;
@@ -510,67 +543,17 @@ section,
   font-size: 16px;
 }
 
-/*===================== SKILLS =========================*/
-.skills {
-  background-color: #f8f9fa;
-  color: var(--primary-font-color);
-  padding: 50px 0;
-}
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .stats {
+    flex-direction: column;
+    align-items: center;
+  }
 
-.skill-title {
-  font-size: 20px;
-  font-weight: 600;
-  cursor: pointer;
-  margin-bottom: 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  background: #e0e0e0;
-  border-radius: 5px;
-  transition: background 0.3s;
-}
-
-.skill-title:hover {
-  background: var(--accent-color);
-  color: var(--default-color)
-}
-
-.dropdown-content {
-  display: none;
-  margin-top: 10px;
-}
-
-.arrow {
-  transition: transform 0.3s ease;
-}
-
-.arrow.up {
-  transform: rotate(180deg);
-}
-
-.star-rating {
-  display: flex;
-  margin-left: auto;
-  /* Aligns stars to the right */
-}
-
-.star {
-  font-size: 20px;
-  color: #ffc107;
-  /* Star color */
-}
-
-.star.empty {
-  color: #e0e0e0;
-  /* Empty star color */
-}
-
-.skill-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5px 0;
+  .stats .stats-item {
+    max-width: 100%;
+    margin-bottom: 20px; /* Adds space between each stat item */
+  }
 }
 
 /*--------------------------------------------------------------
@@ -634,7 +617,7 @@ section,
   border: 2px solid var(--accent-color);
 }
 
-/* Resume filter */
+/* Resume filter
 .resume .resume-filters {
   padding: 0;
   margin: 0 auto 20px auto;
@@ -668,7 +651,7 @@ section,
 
 .resume .resume-filters li:last-child {
   margin-right: 0;
-}
+} */
 
 @media (max-width: 575px) {
   .resume .resume-filters li {
@@ -731,6 +714,71 @@ section,
 .resume .resume-item:hover .resume-info {
   opacity: 1;
   bottom: 0;
+}
+
+/*--------------------------------------------------------------
+# SKILLS Section
+--------------------------------------------------------------*/
+.skills {
+  background-color: #f8f9fa;
+  color: var(--primary-font-color);
+  padding: 50px 0;
+}
+
+.skill-title {
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: #e0e0e0;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.skill-title:hover {
+  background: var(--accent-color);
+  color: var(--default-color)
+}
+
+.dropdown-content {
+  display: none;
+  margin-top: 10px;
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+.arrow.up {
+  transform: rotate(180deg);
+}
+
+.star-rating {
+  display: flex;
+  margin-left: auto;
+  /* Aligns stars to the right */
+}
+
+.star {
+  font-size: 20px;
+  color: #ffc107;
+  /* Star color */
+}
+
+.star.empty {
+  color: #e0e0e0;
+  /* Empty star color */
+}
+
+.skill-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
 }
 
 /*--------------------------------------------------------------
