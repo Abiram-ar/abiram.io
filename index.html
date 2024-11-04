@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    
+
 </head>
 
 <body>
@@ -28,64 +28,64 @@
         </nav>
     </header>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-    
-          // Hamburger menu toggle for mobile
-        //   const headerToggle = document.getElementById('header-toggle');
-        //   const header = document.getElementById('header');
-          
-        //   headerToggle.addEventListener('click', function() {
-        //     header.classList.toggle('header-show');
-        //   });
-    
-          // Select all menu items
-          const menuLinks = document.querySelectorAll('.navmenu a');
-          const sections = document.querySelectorAll('section'); // Select all sections of the page
-    
-          // Function to remove "active" class from all menu items
-          function removeActiveClasses() {
-            menuLinks.forEach((link) => link.classList.remove('active'));
-          }
-    
-          // Add click event to each menu link
-          menuLinks.forEach(link => {
-            link.addEventListener('click', function() {
-              // Remove active class from all menu items
-              removeActiveClasses();
-              // Add active class to the clicked menu item
-              link.classList.add('active');
-              header.classList.remove('header-show'); // Close the menu after clicking
+        document.addEventListener("DOMContentLoaded", function () {
+
+            // Hamburger menu toggle for mobile
+            //   const headerToggle = document.getElementById('header-toggle');
+            //   const header = document.getElementById('header');
+
+            //   headerToggle.addEventListener('click', function() {
+            //     header.classList.toggle('header-show');
+            //   });
+
+            // Select all menu items
+            const menuLinks = document.querySelectorAll('.navmenu a');
+            const sections = document.querySelectorAll('section'); // Select all sections of the page
+
+            // Function to remove "active" class from all menu items
+            function removeActiveClasses() {
+                menuLinks.forEach((link) => link.classList.remove('active'));
+            }
+
+            // Add click event to each menu link
+            menuLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    // Remove active class from all menu items
+                    removeActiveClasses();
+                    // Add active class to the clicked menu item
+                    link.classList.add('active');
+                    header.classList.remove('header-show'); // Close the menu after clicking
+                });
             });
-          });
-    
-          // Function to add active class based on scroll position
-          function activateMenuOnScroll() {
-            let scrollPosition = window.scrollY;
-    
-            sections.forEach((section) => {
-              const sectionTop = section.offsetTop - 80; // Adjust for any header height or padding
-              const sectionHeight = section.offsetHeight;
-    
-              if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                removeActiveClasses();
-                const currentLink = document.querySelector(`.navmenu a[href="#${section.id}"]`);
-                if (currentLink) {
-                  currentLink.classList.add('active');
-                }
-              }
-            });
-          }
-    
-          // Run the scroll activation function when the page is scrolled
-          window.addEventListener('scroll', activateMenuOnScroll);
-    
-          // Call the function on page load to activate the correct menu item based on the current scroll position
-          activateMenuOnScroll();
+
+            // Function to add active class based on scroll position
+            function activateMenuOnScroll() {
+                let scrollPosition = window.scrollY;
+
+                sections.forEach((section) => {
+                    const sectionTop = section.offsetTop - 80; // Adjust for any header height or padding
+                    const sectionHeight = section.offsetHeight;
+
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        removeActiveClasses();
+                        const currentLink = document.querySelector(`.navmenu a[href="#${section.id}"]`);
+                        if (currentLink) {
+                            currentLink.classList.add('active');
+                        }
+                    }
+                });
+            }
+
+            // Run the scroll activation function when the page is scrolled
+            window.addEventListener('scroll', activateMenuOnScroll);
+
+            // Call the function on page load to activate the correct menu item based on the current scroll position
+            activateMenuOnScroll();
         });
-      </script>
+    </script>
 
     <main class="main">
-        <!-- Hero Section --> 
+        <!-- Hero Section -->
         <section id="hero" class="hero section light-background">
             <div class="container" data-aos="zoom-out">
                 <div class="row justify-content-bottom-center">
@@ -699,34 +699,28 @@
                         </div><!-- End Info Item -->
                     </div>
                     <div class="col-lg-8">
-                        <form id="contactForm" action="sendmail.php" method="post" class="              form"
-                            data-aos="fade-up" data-aos-delay="200">
+                        <form id="contactForm" class="form-control" onsubmit="return sendWhatsApp(event);">
                             <div class="row gy-4">
-
+        
                                 <div class="col-md-6">
-                                    <input type="text" name="name" class="form-control" placeholder="Your Name"
-                                        required>
+                                    <input type="text" id="name" name="name" class="form-control" placeholder="Your Name" required>
                                 </div>
-
+        
                                 <div class="col-md-6">
-                                    <input type="email" class="form-control" name="email" placeholder="Your Email"
-                                        required>
+                                    <input type="email" id="email" class="form-control" name="email" placeholder="Your Email" required>
                                 </div>
-
+        
                                 <div class="col-md-12">
-                                    <input type="text" class="form-control" name="subject" placeholder="Subject"
-                                        required>
+                                    <input type="text" id="subject" class="form-control" name="subject" placeholder="Subject" required>
                                 </div>
-
+        
                                 <div class="col-md-12">
-                                    <textarea class="form-control" name="message" rows="6" placeholder="Message"
-                                        required></textarea>
+                                    <textarea id="message" class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
                                 </div>
                                 <div class="col-md-12 text-center">
                                     <div class="loading" style="display: none;">Loading</div>
-                                    <div class="error-message" style="color: red;"></div>
-                                    <div class="sent-message" style="color: green; display: none;">Your
-                                        message has been sent. Thank you!</div>
+                                    <div class="error-message"></div>
+                                    <div class="sent-message">Your message has been sent. Thank you!</div>
                                     <button type="submit">Send Message</button>
                                 </div>
                             </div>
@@ -736,42 +730,26 @@
                 </div>
             </div>
         </section><!-- Contact Section -->
-        <!-- <script>
-            document.getElementById('contactForm').addEventListener('submit', function (event) {
-                event.preventDefault(); // Prevent default form submission
-
-                // Show loading message
-                document.querySelector('.loading').style.display = 'block';
-
-                // Create FormData object to send form data
-                var formData = new FormData(this);
-
-                // Send form data using Fetch API
-                fetch('mail.php', {
-                    method: 'POST',
-                    body: formData,
-                })
-                    .then(response => response.json())
-                    .then(data => {
-                        // Hide loading message
-                        document.querySelector('.loading').style.display = 'none';
-
-                        // Show success message
-                        if (data.status === 'success') {
-                            document.querySelector('.sent-message').style.display = 'block';
-                            this.reset(); // Clear form fields
-                        } else {
-                            // Show error message
-                            document.querySelector('.error-message').innerText = data.message;
-                        }
-                    })
-                    .catch(error => {
-                        // Hide loading message and show error
-                        document.querySelector('.loading').style.display = 'none';
-                        document.querySelector('.error-message').innerText = 'An error occurred, please try again later.';
-                    });
-            });
-        </script> -->
+        
+        <script>
+            function sendWhatsApp(event) {
+                event.preventDefault(); // Prevent the form from submitting in the traditional manner
+        
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const subject = document.getElementById('subject').value;
+                const message = document.getElementById('message').value;
+                const phoneNumber = '6380734445'; // Replace with your number including country code, but without the plus sign
+                const urlEncodedMessage = encodeURIComponent(`Hello, my name is ${name}. Email: ${email}. Subject: ${subject}. Message: ${message}`);
+        
+                const whatsappUrl = `https://wa.me/${phoneNumber}?text=${urlEncodedMessage}`;
+                window.open(whatsappUrl, '_blank');
+                
+                // Optionally, show a message that the WhatsApp link has been opened
+                document.querySelector('.sent-message').style.display = 'block';
+            }
+        </script>
+        
     </main>
 
     <footer id="footer" class="footer position-relative light-background">
@@ -804,7 +782,7 @@
 
     <!-- Preloader -->
     <div id="preloader">
-              <div class="preloader-heading">
+        <div class="preloader-heading">
             <div class="load-text">
                 <span>L</span>
                 <span>O</span>
@@ -843,7 +821,7 @@
 
 
     <script src="assets\js\main.js"></script>
-           <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script> -->
 </body>
