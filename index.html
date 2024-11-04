@@ -699,7 +699,7 @@
                         </div><!-- End Info Item -->
                     </div>
                     <div class="col-lg-8">
-                        <form id="contactForm" action="forms/contact.php" method="post" class="php-email-form"
+                        <form id="contactForm" action="sendmail.php" method="post" class="              form"
                             data-aos="fade-up" data-aos-delay="200">
                             <div class="row gy-4">
 
@@ -731,11 +731,12 @@
                                 </div>
                             </div>
                         </form>
+                        <div id="formResponse" class="form-response"></div>
                     </div><!-- End Contact Form -->
                 </div>
             </div>
         </section><!-- Contact Section -->
-        <script>
+        <!-- <script>
             document.getElementById('contactForm').addEventListener('submit', function (event) {
                 event.preventDefault(); // Prevent default form submission
 
@@ -746,7 +747,7 @@
                 var formData = new FormData(this);
 
                 // Send form data using Fetch API
-                fetch('forms/contact.php', {
+                fetch('mail.php', {
                     method: 'POST',
                     body: formData,
                 })
@@ -770,7 +771,7 @@
                         document.querySelector('.error-message').innerText = 'An error occurred, please try again later.';
                     });
             });
-        </script>
+        </script> -->
     </main>
 
     <footer id="footer" class="footer position-relative light-background">
