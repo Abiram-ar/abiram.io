@@ -90,7 +90,7 @@ section,
 --------------------------------------------------------------*/
 .section-title {
   text-align: center;
-  /* padding-bottom: 10px; */
+  padding-bottom: 30px;
   position: relative;
 }
 
@@ -157,7 +157,7 @@ section,
 # Global Header
 --------------------------------------------------------------*/
 .header {
-  color: var(--background-color);
+  color: var(--background-primary-color);
   position: fixed;
   top: 0;
   left: 0;
@@ -180,14 +180,14 @@ section,
   }
 }
 
-/* .float {
+.float {
   position: fixed;
   width: 60px;
   height: 60px;
   bottom: 30px;
   right: 50px;
   background-color: #25d366;
-  color: #FFF;
+  color: #7e0d0d;
   border-radius: 50px;
   text-align: center;
   font-size: 30px;
@@ -197,7 +197,7 @@ section,
 
 .my-float {
   margin-top: 16px;
-} */
+}
 
 @media (min-width: 1200px) and (max-width: 1600px) {
   .header~main {
@@ -207,6 +207,7 @@ section,
 
 .header.header-show {
   top: 0;
+  /* left: 0; */
   align-items: center;
 
 }
@@ -890,58 +891,60 @@ section,
 --------------------------------------------------------------*/
 .body {
   font-family: Arial, sans-serif;
-  background-color: var(--background-color);
+  background-color: var(--background-primary-color);
   margin: 0;
-  padding: 20px;
+  /* padding: 20px; */
 }
 
 #filters {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 20px;      
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  /* margin-top: 20px; */
 }
 
 .filter-btn {
-  background-color: #333;
-  color: white;
-  padding: 10px 20px;
+  background-color: var(--background-secondary-color);
+  color: var(--secondary-font-color);
+  padding: 10px 18px;
   border: none;
   margin: 0 5px;
   cursor: pointer;
   border-radius: 5px;
   transition: background-color 0.3s ease;
+  flex: 1 1 auto; 
+  max-width: 200px; 
 }
 
 .filter-btn.active {
-  background-color: #ff6600;
+  background-color: var(--accent-color);
 }
 
 .filter-btn:hover {
-  background-color: #555;
+  background-color: var(--accent-color);
 }
 
+/* Projects Grid */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  /* 4 cards on large screens */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
+  align-items: center;
 }
 
 .project-thumbnail {
-  background-color: white;
-  border: 1px solid #ccc;
+  background-color: var(--background-primary-color);
+  border: 1px solid var(--social-color);
   padding: 15px;
   text-align: center;
   transition: transform 0.3s ease;
   border-radius: 15px;
-  /* Rounded edges */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  /* Subtle shadow */
   overflow: hidden;
-  /* Hide any overflow */
-  width: 280px;
-  /* Set a static width */
-  height: 200px;
-  /* Set a static height */
+  width: 280px; /* Set a static width */
+  height: 200px; 
 }
 
 .project-thumbnail:hover {
@@ -950,13 +953,9 @@ section,
 
 .project-thumbnail img {
   width: 100%;
-  /* Make image fill the width */
   height: auto;
-  /* Maintain aspect ratio */
   max-height: 160px;
-  /* Limit image height for better aesthetics */
   border-radius: 10px;
-  /* Rounded edges for images */
 }
 
 .project-thumbnail a {
@@ -967,25 +966,47 @@ section,
 /* Responsive Styles */
 @media (max-width: 1200px) {
   .projects-grid {
-    grid-template-columns: repeat(3, 1fr);
-    /* 3 cards on medium screens */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* Adjusting columns dynamically */
   }
 }
 
 @media (max-width: 900px) {
   .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
-    /* 2 cards on smaller screens */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    /* Fewer columns on smaller screens */
   }
 }
 
 @media (max-width: 600px) {
   .projects-grid {
     grid-template-columns: 1fr;
-    /* 1 card on very small screens */
+    /* Single column layout for small screens */
   }
 }
 
+.project-thumbnail {
+  margin: auto;
+  /* Ensure thumbnails are centered */
+}
+@media (max-width: 900px) {
+  #filters {
+    justify-content: space-around; /* Space buttons evenly */
+  }
+}
+
+@media (max-width: 600px) {
+  #filters {
+    flex-direction: row; /* Stack buttons vertically */
+    align-items: center;
+  }
+
+  .filter-btn {
+    /* width: 50%;  */
+    font-size: 15px; 
+    max-width: none; 
+}
+}
 
 /*--------------------------------------------------------------
 # Contact Section
